@@ -19,14 +19,14 @@ default: &default
 
 development:
   <<: *default
-  database: hello_world_development
+  database: hello_unko_world
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: hello_world_test
+  database: hello_unko_world
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: hello_world_production
-  username: hello_world
-  password: <%= ENV['HELLO_WORLD_DATABASE_PASSWORD'] %>
+  database: hello_unko_world
+  username: root
+  # password: <%= ENV['HELLO_WORLD_DATABASE_PASSWORD'] %>
+  password:
