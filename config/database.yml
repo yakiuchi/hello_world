@@ -17,11 +17,11 @@ default: &default
   port: 3306
   username: root
   password:
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: hello_unko_world
-  socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -29,7 +29,6 @@ development:
 test:
   <<: *default
   database: hello_unko_world
-  socket: /var/run/mysqld/mysqld.sock
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -56,4 +55,3 @@ production:
   username: root
   # password: <%= ENV['HELLO_WORLD_DATABASE_PASSWORD'] %>
   password:
-  socket: /tmp/mysql.sock
