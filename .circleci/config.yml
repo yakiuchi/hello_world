@@ -10,6 +10,7 @@ jobs:
        - image: circleci/ruby:2.4.1-node-browsers
        - image: circleci/mysql:5.6
          environment:
+           RACK_ENV: 'test'
            MYSQL_ALLOW_EMPTY_PASSWORD: yes
            MYSQL_ROOT_PASSWORD: ''
            MYSQL_DATABASE: hello_unko_world
