@@ -8,12 +8,6 @@ jobs:
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.4.1-node-browsers
-       - image: circleci/mysql:5.6
-         environment:
-           RACK_ENV: 'test'
-           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-           MYSQL_ROOT_PASSWORD: ''
-           MYSQL_DATABASE: hello_unko_world
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -43,11 +37,11 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
         
       # Database setup
-      - run:
-          name: Setup database
-          command: |
-            bundle exec rake db:create -timeout 60s
-            bundle exec rake db:migrate
+      # - run:
+      #     name: Setup database
+      #     command: |
+      #       bundle exec rake db:create
+      #       bundle exec rake db:migrate
 
       # run tests!
       - run:
