@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.4.1-node-browsers
-       - image: tkuchiki/delayed-mysql
+       - image: circleci/mysql:5.6
          environment:
            MYSQL_ALLOW_EMPTY_PASSWORD: yes
            MYSQL_ROOT_PASSWORD: ''
@@ -42,16 +42,6 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
         
       # Database setup
-      - run:
-          name: Bundle install
-          command: bundle install
-      - run:
-          name: Wait for DB
-          # preinstalled in circleci/* docker image
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
-      - run:
-          name: MySQL version
-          command: bundle exec ruby mysql_version.rb
       - run:
           name: Setup database
           command: |
