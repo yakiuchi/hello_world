@@ -53,9 +53,19 @@ jobs:
 
       # Database setup
       - run:
-          name: Setup database
+          name: Create database
           command: |
-            RAILS_ENV=test bundle exec rails db:create db:schema:load
+            RAILS_ENV=test bundle exec rails db:create
+
+      - run:
+          name: Migrate database
+          command: |
+            RAILS_ENV=test bundle exec rails db:migrate
+
+      - run:
+          name: Schema load
+          command: |
+            RAILS_ENV=test bundle exec rails db:schema:load
 
       # run tests!
       - run:
