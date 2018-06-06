@@ -52,11 +52,11 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      # - run:
-      #     name: Setup database
-      #     command: |
-      #       bundle exec rake db:create
-      #       bundle exec rake db:migrate
+      - run:
+          name: Setup database
+          command: |
+            bundle exec rake db:create
+            bundle exec rake db:migrate
 
       # run tests!
       - run:
