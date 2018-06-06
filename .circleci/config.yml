@@ -52,11 +52,21 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
+      # - run:
+      #     name: Setup database
+      #     command: |
+      #       bundle exec rake db:create
+      #       bundle exec rake db:migrate
+
+      # Database setup
       - run:
-          name: Setup database
-          command: |
-            bundle exec rake db:create
-            bundle exec rake db:migrate
+          name: init db
+          command: RACK_ENV=test DB_YAML=tools/circleci/database.yml bundle exec rake db:initdb
+
+      # run tests!
+      - run:
+          name: rspec
+          command: RACK_ENV=test DB_YAML=tools/circleci/database.yml bundle exec rake spec
 
       # run tests!
       - run:
