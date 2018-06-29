@@ -64,3 +64,9 @@ gem 'bootstrap', '~> 4.1.1'
 
 # jQuery Rails
 gem 'jquery-rails'
+
+# Slim
+gem 'slim-rails'
+
+# Html2slim
+gem 'html2slim'
