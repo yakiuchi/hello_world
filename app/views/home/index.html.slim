@@ -1,4 +1,5 @@
 .cover-container.d-flex.h-100.p-3.mx-auto.flex-column.text-center
+
   header.masthead.mb-auto
     .inner
       h3.masthead-brand
@@ -6,20 +7,24 @@
       nav.nav.nav-masthead.justify-content-center
         = link_to 'Home', root_path, {:class => 'nav-link active'}
         = link_to 'Members', {:controller => 'users', :action => 'index'}, {:class => 'nav-link'}
+
   main.inner.cover[role="main"]
     h1.cover-heading
       | We are the UNKO page.
     p.lead
-      | Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
+      | Cover is a one-page template for building simple and beautiful home pages.
+      br
+      | Download, edit the text, and add your own fullscreen background photo to make it your own.
     p.lead
       = link_to 'UNKO members', {:controller => 'users', :action => 'index'}, {:class => 'btn btn-lg btn-secondary'}
+
   footer.mastfoot.mt-auto
     .inner
       p
-        | Cover template for 
+        | Cover template for
         a[href="https://getbootstrap.com/"]
           | Bootstrap
-        | , by 
+        | , by
         a[href="https://twitter.com/mdo"]
           | @mdo
         | .
