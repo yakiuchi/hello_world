@@ -7,3 +7,5 @@ Rails自己学習用
 * Rails 5.1.6
 
 commit test !
+
+commit test !
